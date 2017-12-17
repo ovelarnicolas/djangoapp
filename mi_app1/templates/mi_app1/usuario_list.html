@@ -1,0 +1,56 @@
+<!doctype html>
+<html>
+
+<head>
+    <title>Hola Django</title>
+
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
+
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap-theme.min.css">
+
+</head>
+
+<body>
+    <div class="container-fluid">
+        <div class="row">
+            <h1>Usuarios</h1>
+        </div>
+        <div class="row">
+            <table class="table table-hover">
+                <tr>
+                    <th>Nombre</th>
+                    <th>Apellido</th>
+                    <th></th>
+                    <th></th>
+                </tr>
+                {% for u in object_list %}
+                <tr>
+                    <td>{{u.nombre}}</td>
+                    <td>{{u.apellido}}</td>
+                    <td>
+                        <!-- <a class="btn btn-info" href="/admin/mi_app1/usuario/{{u.pk}}/change/">Editar</a> -->
+                        <a class="btn btn-info" href="/usuario/editar/{{u.pk}}">Editar</a>
+                    </td>
+                    <td>
+                        <!-- <a class="btn btn-danger" href="/admin/mi_app1/usuario/{{u.pk}}/delete/">Borrar</a> -->
+                        <a class="btn btn-danger" href="/usuario/borrar/{{u.pk}}">Borrar</a>
+                    </td>
+                </tr>
+                {% endfor %}
+            </table>
+        </div>
+
+        <a href="/usuario/crear" type="button" class="btn btn-primary">Agregar</a>
+    </div>
+
+    <!-- Latest compiled and minified JQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
+</body>
+
+
+</html>

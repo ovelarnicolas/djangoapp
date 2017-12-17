@@ -1,0 +1,40 @@
+<!doctype html>
+<html>
+
+<head>
+    <title>Hola Django</title>
+
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
+
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap-theme.min.css">
+</head>
+
+<body>
+
+    <h1>Usuarios - Update</h1>
+
+    <form method="post"> {% csrf_token %}
+        <fieldset>
+
+            {% for field in form %}
+            <label>{{ field.label_tag }}</label>
+            {{ field }}
+            <br /> {% endfor %}
+
+        </fieldset>        
+    </form>
+
+    <input class="btn btn-primary" type="submit" value="Guardar" />
+    <a href="/usuario" type="button" class="btn btn-default">Volver</a>
+
+    <!-- Latest compiled and minified JQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
+</body>
+
+
+</html>
