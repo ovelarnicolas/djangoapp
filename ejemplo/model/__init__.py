@@ -1,2 +1,0 @@
-# print("Soy el modelo.")
-

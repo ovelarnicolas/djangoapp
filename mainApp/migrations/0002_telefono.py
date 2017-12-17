@@ -9,7 +9,7 @@ import django.db.models.deletion
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('mi_app1', '0001_initial'),
+        ('mainApp', '0001_initial'),
     ]
 
     operations = [
@@ -19,7 +19,7 @@ class Migration(migrations.Migration):
                 ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
                 ('codigo_area', models.IntegerField()),
                 ('numero', models.IntegerField()),
-                ('usuario', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='telefonos', to='mi_app1.Usuario')),
+                ('usuario', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='telefonos', to='mainApp.Usuario')),
             ],
         ),
     ]

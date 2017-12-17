@@ -1,4 +1,4 @@
-"""ejemplo URL Configuration
+"""djangoApp URL Configuration
 
 The `urlpatterns` list routes URLs to views. For more information please see:
     https://docs.djangoproject.com/en/1.11/topics/http/urls/
@@ -15,8 +15,8 @@ Including another URLconf
 """
 from django.conf.urls import url
 from django.contrib import admin
-from mi_app1.views import UsuarioListView, UsuarioCreateView, UsuarioUpdateView, UsuarioDeleteView
-from mi_app1 import views
+from mainApp.views import UsuarioListView, UsuarioCreateView, UsuarioUpdateView, UsuarioDeleteView
+from mainApp import views
 
 urlpatterns = [
     url(r'^$', UsuarioListView.as_view(template_name='static_pages/index.html'), name='home'),

@@ -1,1 +1,1 @@
-web: gunicorn ejemplo.wsgi
+web: gunicorn djangoApp.wsgi
