@@ -25,7 +25,7 @@ SECRET_KEY = '@jyq1s_7(8q%tmee#^&yw_@nu1svub1yui&5_m*qhk@8-i&tfc'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['immense-springs-82937.herokuapp.com']
 
 
 # Application definition
