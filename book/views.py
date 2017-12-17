@@ -4,10 +4,12 @@ from django.forms import ModelForm
 
 from book.models import Book
 
+
 class BookForm(ModelForm):
     class Meta:
         model = Book
         fields = ['name', 'pages']
+
 
 @login_required
 def book_list(request, template_name='book/book_list.html'):
@@ -19,6 +21,7 @@ def book_list(request, template_name='book/book_list.html'):
     data['object_list'] = book
     return render(request, template_name, data)
 
+
 @login_required
 def book_create(request, template_name='book/book_form.html'):
     form = BookForm(request.POST or None)
@@ -27,27 +30,29 @@ def book_create(request, template_name='book/book_form.html'):
         book.user = request.user
         book.save()
         return redirect('book:book_list')
-    return render(request, template_name, {'form':form})
+    return render(request, template_name, {'form': form})
+
 
 @login_required
 def book_update(request, pk, template_name='book/book_form.html'):
     if request.user.is_superuser:
-        book= get_object_or_404(Book, pk=pk)
+        book = get_object_or_404(Book, pk=pk)
     else:
-        book= get_object_or_404(Book, pk=pk, user=request.user)
+        book = get_object_or_404(Book, pk=pk, user=request.user)
     form = BookForm(request.POST or None, instance=book)
     if form.is_valid():
         form.save()
         return redirect('book:book_list')
-    return render(request, template_name, {'form':form})
+    return render(request, template_name, {'form': form})
+
 
 @login_required
 def book_delete(request, pk, template_name='book/book_confirm_delete.html'):
     if request.user.is_superuser:
-        book= get_object_or_404(Book, pk=pk)
+        book = get_object_or_404(Book, pk=pk)
     else:
-        book= get_object_or_404(Book, pk=pk, user=request.user)
-    if request.method=='POST':
+        book = get_object_or_404(Book, pk=pk, user=request.user)
+    if request.method == 'POST':
         book.delete()
         return redirect('book:book_list')
-    return render(request, template_name, {'object':book})
+    return render(request, template_name, {'object': book})

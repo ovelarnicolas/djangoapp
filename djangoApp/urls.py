@@ -15,12 +15,9 @@ Including another URLconf
 """
 from django.conf.urls import url, include
 from django.contrib import admin
-from mainApp.views import UsuarioListView, UsuarioCreateView, UsuarioUpdateView, UsuarioDeleteView
-from mainApp import views
 
 urlpatterns = [
-    url(r'^$', UsuarioListView.as_view(template_name='static_pages/index.html'), name='home'),
+    # url(r'^$', UsuarioListView.as_view(template_name='static_pages/index.html'), name='home'),
     url(r'^admin/', admin.site.urls),    
-    url(r'^usuario/', include('mainApp.urls')),
     url(r'^book/', include('book.urls', namespace="book")),    
 ]
