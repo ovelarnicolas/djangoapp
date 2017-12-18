@@ -1,11 +1,13 @@
-<h1>Books FBV User</h1>
+{% extends "book/base_generic.html" %} {% block content %}
+<h1>ABM de Libros</h1>
 <ul>
     {% for book in object_list %}
-    <li>{{ book.name }}  ({{ book.pages }} Pages)
-    <a href="{% url 'book:book_edit' book.id %}">edit</a>
-    <a href="{% url 'book:book_delete' book.id %}">delete</a>
+    <li>{{ book.name }} ({{ book.pages }} Pages)
+        <a href="{% url 'book:book_edit' book.id %}">Editar</a>
+        <a href="{% url 'book:book_delete' book.id %}">Eliminar</a>
     </li>
     {% endfor %}
 </ul>
 
-<a href="{% url 'book:book_new' %}">New</a>
+<a href="{% url 'book:book_new' %}">Crear</a>
+{% endblock %}
