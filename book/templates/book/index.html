@@ -1,14 +1,4 @@
-{% extends "book/base_generic.html" %} {% block user %}
-<h4>Hola, {{ user }}</h4>
-<a href="{% url 'logout' %}">
-  Logout
-  <span class="glyphicon glyphicon-log-out"></span>
-</a> <p><strong>Superuser</strong>:{% if superuser %}
-si 
-{% else %}
-no
-{% endif %}</p>
-{% endblock %} {% block content %}
+{% extends "book/base_generic.html" %} {% block content %}
 <h1>Home</h1>
 
 <p>Bienvenidos a una pequeña App desarrollada utilizando el framework Django para una Libreria a modo de TP Final de la Universidad
