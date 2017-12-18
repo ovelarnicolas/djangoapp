@@ -1,5 +1,26 @@
 {% extends "book/base_generic.html" %} {% block content %}
-<form method="POST">{% csrf_token %} ¿ Está seguro que desea eliminar el registro "{{ object.name }}" ?
-    <input type="submit" value="Eliminar" />
-</form>
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Eliminar</h5>
+                <a href="{% url 'book:book_list' %}" type="button" class="close" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </a>
+            </div>
+            <div class="modal-body">
+                <form method="POST">{% csrf_token %} ¿Está seguro que desea eliminar el registro "{{ object.name }}" ?
+                    <div style="margin-top: 15px;" class="modal-footer">
+                        <button type="submit" class="btn btn-primary">Eliminar</button>
+                        <a href="{% url 'book:book_list' %}" type="button" class="btn btn-secondary">Cancelar</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $("#exampleModal").modal('show');
+</script>
 {% endblock %}

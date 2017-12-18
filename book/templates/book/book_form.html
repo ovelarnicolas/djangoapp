@@ -1,6 +1,7 @@
 {% extends "book/base_generic.html" %} {% block content %}
 <h1>Editar</h1>
 <form method="post">{% csrf_token %} {{ form.as_p }}
-    <input type="submit" value="Grabar" />
+    <button class="btn btn-primary" type="submit">Grabar</button>
+    <a href="{% url 'book:book_list' %}">Cancelar</a>
 </form>
 {% endblock %}

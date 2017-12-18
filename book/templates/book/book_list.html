@@ -1,27 +1,32 @@
-{% extends "book/base_generic.html" %}{% block title %}
-<title>Libreria de Nico - ABM</title>{% endblock %} {% block content %}
-<h1>ABM de Libros</h1>
+{% extends "book/base_generic.html" %} {% block content %}
+<h1>Gestión de Libros</h1>
 <div class="row">
-    <table class="table table-hover">
-        <tr>
-            <th>Título</th>
-            <th>Páginas</th>
-            <th></th>
-            <th></th>
-        </tr>
-        {% for book in object_list %}
-        <tr>
-            <td>{{book.name}}</td>
-            <td>{{book.pages}}</td>
-            <td>
-                <a class="btn btn-info" href="{% url 'book:book_edit' book.id %}">Editar</a>
-            </td>
-            <td>
-                <a class="btn btn-danger" href="{% url 'book:book_delete' book.id %}">Eliminar</a>
-            </td>
-        </tr>
-        {% endfor %}
-    </table>
+    <div class="col-md-4">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">Libros</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for book in object_list %}
+                <tr>
+                    <td>
+                        {{ book.name }} ({{ book.pages }} Páginas)
+                    </td>
+                    <td>
+                        <a href="{% url 'book:book_edit' book.id %}" class="btn btn-primary btn-sm">Editar</a>
+                    </td>
+                    <td>
+                        <a href="{% url 'book:book_delete' book.id %}" class="btn btn-danger btn-sm">Eliminar</a>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
 </div>
-<a href="{% url 'book:book_new' %}">Crear</a>
+<div class="row">
+    <a href="{% url 'book:book_new' %}" class="btn btn-success">Crear</a>
+</div>
 {% endblock %}
