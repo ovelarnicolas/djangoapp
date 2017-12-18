@@ -1,16 +1,27 @@
-{% extends "book/base_generic.html" %}
-
-{% block content %}
+{% extends "book/base_generic.html" %} {% block user %}
+<h4>Hola, {{ user }}</h4>
+<a href="{% url 'logout' %}">
+  Logout
+  <span class="glyphicon glyphicon-log-out"></span>
+</a> <p><strong>Superuser</strong>:{% if superuser %}
+si 
+{% else %}
+no
+{% endif %}</p>
+{% endblock %} {% block content %}
 <h1>Home</h1>
 
-  <p>Bienvenidos a una pequeña App desarrollada utilizando el framework Django para una Libreria a modo de TP Final de la Universidad de Palermo.</p>
+<p>Bienvenidos a una pequeña App desarrollada utilizando el framework Django para una Libreria a modo de TP Final de la Universidad
+  de Palermo.</p>
 
 <h2>Libros</h2>
 
-  <p>La librería registra los siguientes datos:</p>
-  <ul>
-    <li><strong>Libros totales:</strong> {{ num_books }}</li>    
-    <li><strong>Libros registrados a su nombre:</strong> {{ num_books_user }}</li>
-  </ul>
+<p>La librería registra los siguientes datos:</p>
+<ul>
+  <li>
+    <strong>Libros totales:</strong> {{ num_books }}</li>
+  <li>
+    <strong>Libros registrados a su nombre:</strong> {{ num_books_user }}</li>
+</ul>
 
 {% endblock %}

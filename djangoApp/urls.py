@@ -18,7 +18,8 @@ from django.contrib import admin
 from djangoApp import views
 
 urlpatterns = [
-    url(r'^$', views.Home, name='home'),    
-    url(r'^admin/', admin.site.urls),    
-    url(r'^book/', include('book.urls', namespace="book")),    
+    url(r'^$', views.Home, name='home'),        
+    url(r'^auth/', include('django.contrib.auth.urls')),
+    url(r'^admin/', admin.site.urls, name='admin'),    
+    url(r'^book/', include('book.urls', namespace="book")),        
 ]

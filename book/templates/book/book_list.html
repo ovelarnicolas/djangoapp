@@ -1,13 +1,27 @@
-{% extends "book/base_generic.html" %} {% block content %}
+{% extends "book/base_generic.html" %}{% block title %}
+<title>Libreria de Nico - ABM</title>{% endblock %} {% block content %}
 <h1>ABM de Libros</h1>
-<ul>
-    {% for book in object_list %}
-    <li>{{ book.name }} ({{ book.pages }} Pages)
-        <a href="{% url 'book:book_edit' book.id %}">Editar</a>
-        <a href="{% url 'book:book_delete' book.id %}">Eliminar</a>
-    </li>
-    {% endfor %}
-</ul>
-
+<div class="row">
+    <table class="table table-hover">
+        <tr>
+            <th>Título</th>
+            <th>Páginas</th>
+            <th></th>
+            <th></th>
+        </tr>
+        {% for book in object_list %}
+        <tr>
+            <td>{{book.name}}</td>
+            <td>{{book.pages}}</td>
+            <td>
+                <a class="btn btn-info" href="{% url 'book:book_edit' book.id %}">Editar</a>
+            </td>
+            <td>
+                <a class="btn btn-danger" href="{% url 'book:book_delete' book.id %}">Eliminar</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+</div>
 <a href="{% url 'book:book_new' %}">Crear</a>
 {% endblock %}

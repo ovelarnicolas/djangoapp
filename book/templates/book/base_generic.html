@@ -22,14 +22,25 @@
 
         <div class="row">
             <div class="col-sm-2">
-                {% block sidebar %}
+                {% block user %}
+                <h4>Hola, {{ user }}</h4>
+                <a href="{% url 'logout' %}">
+                    Logout
+                    <span class="glyphicon glyphicon-log-out"></span>
+                </a>
+                <p>
+                    <strong>Superuser</strong>:{% if superuser %} si {% else %} no {% endif %}</p>
+                {% endblock %} {% block sidebar %}
                 <ul class="sidebar-nav">
                     <li>
                         <a href="{% url 'home' %}">Home</a>
                     </li>
                     <li>
                         <a href="{% url 'book:book_list' %}">All books</a>
-                    </li>                    
+                    </li>
+                    <li>
+                        <a href="{% url 'admin:index' %}">Admin</a>
+                    </li>
                 </ul>
                 {% endblock %}
             </div>
