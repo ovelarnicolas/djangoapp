@@ -5,7 +5,12 @@ from book.models import Book
 
 
 def Home(request):
-    num_books = Book.objects.all().count()    
-    num_books_user = Book.objects.filter(user=request.user).count()    
+
+    if request.user.is_anonymous:
+        num_books = 0
+        num_books_user = 0
+    else:
+        num_books = Book.objects.all().count()
+        num_books_user = Book.objects.filter(user=request.user).count()
     template_name = 'book/index.html'
     return render(request, template_name, context={'num_books': num_books, 'num_books_user': num_books_user})
