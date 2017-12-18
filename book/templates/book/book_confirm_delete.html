@@ -1,5 +1,5 @@
 {% extends "book/base_generic.html" %} {% block content %}
-<form method="POST">{% csrf_token %} ¿ Está seguro que desea eliminar el registro "{{ object }}" ?
+<form method="POST">{% csrf_token %} ¿ Está seguro que desea eliminar el registro "{{ object.name }}" ?
     <input type="submit" value="Eliminar" />
 </form>
 {% endblock %}
