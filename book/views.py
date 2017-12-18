@@ -55,5 +55,4 @@ def book_delete(request, pk, template_name='book/book_confirm_delete.html'):
     if request.method == 'POST':
         book.delete()
         return redirect('book:book_list')
-    print(book.name)
     return render(request, template_name, {'object': book})
