@@ -1,15 +1,16 @@
 {% extends "book/base_generic.html" %} {% block content %}
-<h1>Home</h1>
+<h2>La Biblioteca de Nicolás</h2>
 
-<p>Bienvenidos a una pequeña App desarrollada utilizando el framework Django para una Libreria a modo de TP Final de la Universidad
-  de Palermo.</p>
+<p>Pequeña App desarrollada utilizando el framework Django para una Bilbioteca a modo de TP Final de la Universidad de Palermo.</p>
 
 <h2>Libros</h2>
 
-  <p>La biblioteca registra los siguientes datos:</p>
-  <ul>
-    <li><strong>Libros totales:</strong> {{ num_books }}</li>    
-    <li><strong>Libros registrados a su nombre:</strong> {{ num_books_user }}</li>
-  </ul>
+<p>La biblioteca registra los siguientes datos:</p>
+<ul>
+  <li>
+    <strong>Libros totales:</strong> {{ num_books }}</li>
+  <li>
+    <strong>Libros registrados a su nombre:</strong> {{ num_books_user }}</li>
+</ul>
 
 {% endblock %}

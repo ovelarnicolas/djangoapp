@@ -30,7 +30,7 @@ def book_create(request, template_name='book/book_form.html'):
         book.user = request.user
         book.save()
         return redirect('book:book_list')
-    return render(request, template_name, {'form': form})
+    return render(request, template_name, {'form': form, 'action': 'Crear'})
 
 
 @login_required
@@ -43,7 +43,7 @@ def book_update(request, pk, template_name='book/book_form.html'):
     if form.is_valid():
         form.save()
         return redirect('book:book_list')
-    return render(request, template_name, {'form': form})
+    return render(request, template_name, {'form': form, 'action': 'Editar'})
 
 
 @login_required
